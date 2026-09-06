@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { 
+    box-sizing: border-box; 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  }
+  html, body, #root { 
+    height: 100%; 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white border border-slate-200/90 shadow-sm rounded-xl;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+  .glass-card:hover {
+    transform: translateY(-1px);
+    @apply border-slate-300 shadow-md;
+  }
+  .btn-gold {
+    background: #0f172a;
+    @apply text-white font-bold cursor-pointer border-none shadow-sm;
+    transition: all 0.2s ease;
+  }
+  .btn-gold:hover {
+    background: #1e293b;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    transform: translateY(-1px);
+  }
+  .btn-gold:disabled { @apply opacity-40 cursor-not-allowed; transform: none; box-shadow: none; }
+  .btn-outline {
+    @apply bg-white border border-slate-300 text-slate-800 font-semibold cursor-pointer shadow-sm;
+    transition: all 0.2s ease;
+  }
+  .btn-outline:hover { 
+    @apply bg-slate-50 border-slate-400 text-slate-900;
+  }
+  .nav-active {
+    @apply bg-slate-900 text-white font-bold shadow-sm;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wide uppercase;
+  }
+  .badge-green  { @apply bg-emerald-50 text-emerald-700 border border-emerald-200; }
+  .badge-yellow { @apply bg-amber-50 text-amber-700 border border-amber-200; }
+  .badge-red    { @apply bg-rose-50 text-rose-700 border border-rose-200; }
+  .badge-blue   { @apply bg-sky-50 text-sky-700 border border-sky-200; }
+  .badge-gray   { @apply bg-slate-100 text-slate-700 border border-slate-200; }
+  .badge-gold   { @apply bg-slate-900 text-white border border-slate-800; }
+  .form-input {
+    @apply bg-white border border-slate-300 text-slate-900 outline-none font-medium;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-input:focus {
+    @apply border-slate-800 ring-1 ring-slate-800;
+  }
+  .form-input::placeholder { @apply text-slate-400; }
+  .data-table th {
+    @apply bg-slate-50/90 text-slate-600 text-[11px] tracking-wider uppercase px-4 py-3 font-semibold;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .data-table td {
+    @apply px-4 py-3 text-xs text-slate-800 font-medium;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .data-table tr:hover td { background: #f8fafc; }
+  .modal-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    animation: fadeInUp 0.2s ease-out;
+  }
+  .progress-bar { @apply h-1.5 bg-slate-100 rounded-full overflow-hidden; }
+  .progress-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(90deg, #64748b, #0f172a);
+    transition: width 0.8s ease;
+  }
+  .gold-text {
+    color: #0f172a;
+    font-weight: 700;
+  }
+  .stat-card-accent { border-top: 2px solid #0f172a; }
+  .sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+  }
+  .bottom-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid #e2e8f0;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in { animation: fadeInUp 0.3s ease-out both; }
+  .fade-in-1 { animation: fadeInUp 0.3s 0.04s ease-out both; }
+  .fade-in-2 { animation: fadeInUp 0.3s 0.08s ease-out both; }
+  .fade-in-3 { animation: fadeInUp 0.3s 0.12s ease-out both; }
+  .fade-in-4 { animation: fadeInUp 0.3s 0.16s ease-out both; }
+  .fade-in-5 { animation: fadeInUp 0.3s 0.20s ease-out both; }
+  select.form-input option { background: #ffffff; color: #0f172a; }
+}
